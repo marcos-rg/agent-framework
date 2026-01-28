@@ -1,14 +1,12 @@
-from agent.core.settings import settings
+from agent.main import Agent
 
-from logging import getLogger
-
-logger = getLogger(__name__)
+from agent.core.logger import get_logger
+logger = get_logger(__name__)
 
 def main():
-    logger.info(f"Using LLM Model: {settings.LLM_MODEL_NAME}")
-    # Here you would add the main logic of your agent application
-    # For demonstration, we'll just print the model name
-    print(f"LLM Model Name: {settings.LLM_MODEL_NAME}")
+    agent = Agent()
+    logger.info("Agent initialized successfully.")
+    
 
 if __name__ == "__main__":
     main()
