@@ -3,6 +3,8 @@ name = "agent-framework"
 version = "0.1.0"
 requires-python = ">=3.13"
 dependencies = [
+    "langchain>=1.2.7",
+    "langchain-google-genai>=4.2.0",
     "pydantic-settings>=2.12.0",
 ]
 
