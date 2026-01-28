@@ -13,4 +13,8 @@ class TestSettings:
     def test_gemini_api_key(self, settings):
         """Verify GEMINI_API_KEY is correctly set as SecretStr."""
         assert isinstance(settings.GEMINI_API_KEY, SecretStr)
+
+    def test_llm_model_provider(self, settings):
+        """Verify LLM_MODEL_PROVIDER is correctly set."""
+        assert isinstance(settings.LLM_MODEL_PROVIDER, str)
         
