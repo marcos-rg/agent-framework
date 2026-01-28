@@ -1,10 +1,10 @@
 from functools import lru_cache
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import Field, SecretStr
+import logging
 
-from logging import getLogger
-
-logger = getLogger(__name__)
+# Use basic logging here to avoid circular imports since logger module imports settings
+logger = logging.getLogger("agent.settings")
 
 class Settings(BaseSettings):
     """
@@ -17,7 +17,8 @@ class Settings(BaseSettings):
                                       )
     
     LLM_MODEL_NAME: str = Field(description="Name of the language model to use")
-    GEMINI_API_KEY: SecretStr = Field(description="API key for Google services")
+    LLM_MODEL_PROVIDER: str = Field(description="Provider of the language model")
+    API_KEY: SecretStr = Field(description="API key for Google services")
 
 @lru_cache(maxsize=1)
 def get_settings():
